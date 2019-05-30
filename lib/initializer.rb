@@ -1,8 +1,3 @@
-require_relative "video"
-require_relative "web"
-require_relative "graphics"
-
-
 class Initializer
 
   def initialize
@@ -11,18 +6,19 @@ class Initializer
   end
 
   def check_if_user_gave_input
-    abort("mkrubydir: missing input") if ARGV.empty?
+    abort("initproj: missing input ('video', 'web' or 'graphics')".colorize(:red)) if ARGV.empty?
   end
 
   def create_project
-    if ARGV == "video"
+    request = ARGV.join
+    if request == "video"
       Video.new
-    elsif ARGV == "graphics"
+    elsif request == "graphics"
       Graphics.new
-    elsif ARGV == "web"
+    elsif request == "web"
       Web.new
     else
-      puts "WTF ?"
+      puts "initproj: WTF is your input (Three simple choices : 'video', 'web' or 'graphics')".colorize(:red)
     end
   end
 

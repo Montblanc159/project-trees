@@ -1,4 +1,4 @@
-class Video
+class Web
 
   def initialize
     ARGV.clear
@@ -15,7 +15,7 @@ class Video
   end
 
   def ask_name
-    print "Video project name: ".colorize(:blue)
+    print "Web project name: ".colorize(:blue)    
     name = gets.chomp
   end
 
@@ -28,14 +28,9 @@ class Video
     Dir.mkdir("./1_docs")
     Dir.mkdir("./2_drafts")
     Dir.mkdir("./3_production")
-    Dir.mkdir("./3_production/0_scenario")
-    Dir.mkdir("./3_production/1_scouting")
-    Dir.mkdir("./3_production/2_storyboard")
-    Dir.mkdir("./3_production/3_rushs")
-    Dir.mkdir("./3_production/4_assets")
-    Dir.mkdir("./4_exports")
-    Dir.mkdir("./4_exports/0_off-line")
-    Dir.mkdir("./4_exports/1_on-line")
+    Dir.mkdir("./3_production/0_db-layout")
+    Dir.mkdir("./3_production/1_layout")
+    Dir.mkdir("./3_production/2_assets")
     puts "Directories created".colorize(:green)
   end
 
@@ -48,18 +43,9 @@ class Video
     file.puts("Made with ♥ by Guillaume")
     file.close
 
-
-    system("touch ./3_production/0_scenario/scenario.md")
-    file = File.open("./3_production/0_scenario/scenario.md", "w")
-    file.puts("# #{@project_name} - Note d'intention")
-    file.puts("")
-    file.puts("")
-    file.puts("Made with ♥ by Guillaume")
-
-
-    system("touch ./1_docs/tournage.md")
-    file = File.open("./1_docs/tournage.md", "w")
-    file.puts("# #{@project_name} - Déroulé du tournage")
+    system("touch ./3_production/0_db-layout/#{@project_name}-db.md")
+    file = File.open("./3_production/0_db-layout/#{@project_name}-db.md", "w")
+    file.puts("# #{@project_name} - Base de données")
     file.puts("")
     file.puts("")
     file.puts("Made with ♥ by Guillaume")
